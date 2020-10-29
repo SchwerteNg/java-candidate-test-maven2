@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.ProjectMapper" >
+
+    <update id="createUserTable">
+        CREATE TABLE `UserID` (
+            `UserID` varchar(255) DEFAULT NULL,
+            `Id1` varchar(255) DEFAULT NULL,
+            `Id2` varchar(255) DEFAULT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+    </update>
+
+    <select id="selectIDExist" resultType="com.example.demo.entity.ProjectParam">
+        SELECT `UserID`,`Id1`,`Id2`
+        FROM `UserID`
+        WHERE `id1`=#{id1} AND `id2`=#{id2}
+    </select>
+
+    <insert id="insertNewUser">
+        INSERT INTO `contentcoopcenter`.`userid`(`User`, `Id1`, `Id2`)
+        VALUES (#{userID}, #{id1}, #{id2});
+    </insert>
+
+</mapper>
